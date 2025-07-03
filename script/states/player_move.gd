@@ -3,7 +3,7 @@ extends State
 @export var sprite: Sprite2D;
 @export var player: CharacterBody2D;
 
-const SPEED = 400.0
+const SPEED = 650.0
 
 var input: Vector2;
 
