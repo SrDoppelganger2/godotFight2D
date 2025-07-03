@@ -3,13 +3,14 @@ extends State
 @export var player: CharacterBody2D;
 @export var sprite: Sprite2D;
 
-const SPEED = 200.0
+const SPEED = 600.0
 
 @export_category("Jump Params")
 @export var jump_peak_time:float = 0.5;
 @export var jump_fall_time:float = 0.5;
-@export var jump_height:float = 20.0;
-@export var jump_distance:float = 40.0;
+#short hop = 200 jump = 400
+@export var jump_height:float = 200.0;
+@export var jump_distance:float = 300.0;
 #não precisa de valores default, só coloquei para evitar erros
 var speed: float = 5.0;
 var jump_velocity: float = 5.0;
@@ -39,8 +40,8 @@ func getInput():
 func Enter():
 	sprite.self_modulate = Color("purple");
 	calculateMovement()
-	player.velocity.y = -jump_velocity
-	print(jump_velocity)
+	if player.is_on_floor():
+		player.velocity.y = -jump_velocity
 	
 func Physics_Update(delta: float):
 	var direction = getInput();
