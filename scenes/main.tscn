@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjmdbm8q5iii5"]
+
+[ext_resource type="PackedScene" uid="uid://bs153xg616s8h" path="res://scenes/wall.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://d7cwol0meqc6" path="res://scenes/player.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(573, 321)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." node_paths=PackedStringArray("rival") instance=ExtResource("2_0wfyh")]
+position = Vector2(121, 408)
+rival = NodePath("../Player2")
+UP = "UP"
+DOWN = "DOWN"
+LEFT = "LEFT"
+RIGHT = "RIGHT"
+
+[node name="Player2" parent="." node_paths=PackedStringArray("rival") instance=ExtResource("2_0wfyh")]
+position = Vector2(1081, 411)
+rival = NodePath("../Player")
+UP = "ui_up"
+DOWN = "ui_down"
+LEFT = "ui_left"
+RIGHT = "ui_right"
+
+[node name="platforms" type="Node" parent="."]
+
+[node name="Ground" parent="platforms" instance=ExtResource("1_o5qli")]
+position = Vector2(582, 901)
+scale = Vector2(18, 1)
+
+[node name="Ground2" parent="platforms" instance=ExtResource("1_o5qli")]
+position = Vector2(-648, 342)
+rotation = 1.5708
+scale = Vector2(10, 1)
+
+[node name="Ground3" parent="platforms" instance=ExtResource("1_o5qli")]
+position = Vector2(1796, 338)
+rotation = 1.5708
+scale = Vector2(10, 1)
