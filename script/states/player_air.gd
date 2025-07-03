@@ -9,7 +9,7 @@ const SPEED = 600.0
 @export var jump_peak_time:float = 0.5;
 @export var jump_fall_time:float = 0.5;
 #short hop = 200 jump = 400
-@export var jump_height:float = 200.0;
+@export var jump_height:float = 300.0;
 @export var jump_distance:float = 300.0;
 #não precisa de valores default, só coloquei para evitar erros
 var speed: float = 5.0;
@@ -46,6 +46,12 @@ func Enter():
 func Physics_Update(delta: float):
 	var direction = getInput();
 	player.velocity.x = direction * SPEED;
+	
+	#TODO implementar pulos e saltos
+	if Input.is_action_just_released(up):
+		jump_height = 200.0
+	else:
+		jump_height = 300.0
 	
 	if not player.is_on_floor():
 		if player.velocity.y > 0:
