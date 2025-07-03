@@ -26,6 +26,8 @@ func _process(delta: float):
 		sprite.scale.x = 1;
 	else:
 		sprite.scale.x = -1;
+	
+	print("commit test");
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
