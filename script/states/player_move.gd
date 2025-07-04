@@ -12,6 +12,9 @@ var input: Vector2;
 @onready var up = player.getControls("UP");
 @onready var down = player.getControls("DOWN");
 
+#var de animação
+@onready var animation: AnimationPlayer = $"../../Animations/AnimationPlayer"
+
 func getInput():
 	input.x = Input.get_action_strength(right) - Input.get_action_strength(left);
 	return input.normalized();
@@ -19,7 +22,8 @@ func getInput():
 
 func Enter():
 	sprite.self_modulate = Color("orange");
-
+	animation.play("forward");
+	
 func Physics_Update(delta: float):
 	var direction = getInput();
 	player.velocity = direction * SPEED;
