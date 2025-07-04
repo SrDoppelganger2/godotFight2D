@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var health = 10;
+
 @export var rival: CharacterBody2D;
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -20,7 +22,15 @@ func getControls(input):
 		"RIGHT":
 			return RIGHT
 
+func getHealth():
+	return health;
+	
+#para teste
+func getHurt(damage:int):
+	health = health - damage
+
 func _process(delta: float):
+	
 	#deixa o personagem virado para o inimigo
 	if rival.global_position.x > global_position.x:
 		sprite.scale.x = 1;

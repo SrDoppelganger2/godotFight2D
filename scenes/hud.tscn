@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://djcc12gxy2ucc"]
+
+[ext_resource type="FontFile" uid="uid://uc4h7bycigd0" path="res://Assets/fonts/PressStart2P.ttf" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://c38icnvwc8nya" path="res://script/battleHUD_Script.gd" id="1_oo0fn"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo0fn")
+
+[node name="P1_health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 426.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 24
+text = "Player 1: 10"
+
+[node name="P2_health" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -406.0
+offset_top = 40.0
+offset_right = -22.0
+offset_bottom = 72.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 24
+text = "Player 2: 10"
+horizontal_alignment = 2

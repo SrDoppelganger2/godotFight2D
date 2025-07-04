@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjmdbm8q5iii5"]
+[gd_scene load_steps=4 format=3 uid="uid://cjmdbm8q5iii5"]
 
 [ext_resource type="PackedScene" uid="uid://bs153xg616s8h" path="res://scenes/wall.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://djcc12gxy2ucc" path="res://scenes/hud.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d7cwol0meqc6" path="res://scenes/player.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(573, 321)
-zoom = Vector2(0.5, 0.5)
+position = Vector2(562, 516)
+zoom = Vector2(3, 3)
 
 [node name="Player" parent="." node_paths=PackedStringArray("rival") instance=ExtResource("2_0wfyh")]
-position = Vector2(121, 408)
+position = Vector2(414, 519)
 rival = NodePath("../Player2")
 UP = "UP"
 DOWN = "DOWN"
@@ -18,7 +19,7 @@ LEFT = "LEFT"
 RIGHT = "RIGHT"
 
 [node name="Player2" parent="." node_paths=PackedStringArray("rival") instance=ExtResource("2_0wfyh")]
-position = Vector2(1081, 411)
+position = Vector2(723, 519)
 rival = NodePath("../Player")
 UP = "ui_up"
 DOWN = "ui_down"
@@ -28,15 +29,19 @@ RIGHT = "ui_right"
 [node name="platforms" type="Node" parent="."]
 
 [node name="Ground" parent="platforms" instance=ExtResource("1_o5qli")]
-position = Vector2(582, 901)
-scale = Vector2(18, 1)
+position = Vector2(569, 627)
+scale = Vector2(5, 0.5)
 
 [node name="Ground2" parent="platforms" instance=ExtResource("1_o5qli")]
-position = Vector2(-648, 342)
+position = Vector2(895, 471)
 rotation = 1.5708
-scale = Vector2(10, 1)
+scale = Vector2(3, 0.5)
 
 [node name="Ground3" parent="platforms" instance=ExtResource("1_o5qli")]
-position = Vector2(1796, 338)
+position = Vector2(255, 478)
 rotation = 1.5708
-scale = Vector2(10, 1)
+scale = Vector2(3, 0.5)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("1_sugp2")]

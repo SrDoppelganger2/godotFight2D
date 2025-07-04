@@ -3,17 +3,17 @@ extends State
 @export var player: CharacterBody2D;
 @export var sprite: Sprite2D;
 
-const SPEED = 600.0
+const SPEED = 150.0
 
 @export_category("Jump Params")
-@export var jump_peak_time:float = 0.5;
-@export var jump_fall_time:float = 0.5;
+@export var jump_peak_time:float = 0.4;
+@export var jump_fall_time:float = 0.4;
 #short hop = 200 jump = 400
-@export var jump_height:float = 300.0;
-@export var jump_distance:float = 300.0;
+@export var jump_height:float = 80.0;
+@export var jump_distance:float = 100.0;
 #não precisa de valores default, só coloquei para evitar erros
-var speed: float = 5.0;
-var jump_velocity: float = 5.0;
+var speed: float = 1.0;
+var jump_velocity: float = 1.5;
 
 #variaveis de gravidade
 var jump_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity");
@@ -48,11 +48,11 @@ func Physics_Update(delta: float):
 	player.velocity.x = direction * SPEED;
 	
 	#TODO implementar pulos e saltos
-	if Input.is_action_just_released(up):
-		jump_height = 200.0
-	else:
-		jump_height = 300.0
-	
+	#if Input.is_action_just_released(up):
+		#jump_height = 30.0
+	#else:
+		#jump_height = 300.0
+	#
 	if not player.is_on_floor():
 		if player.velocity.y > 0:
 			player.velocity.y += jump_gravity * delta;

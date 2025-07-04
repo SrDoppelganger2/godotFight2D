@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://deewgsovu57qf"
+path="res://.godot/imported/sf-057.wav-72d165767ebb5ff60f434ee0ce6f18e8.sample"
+
+[deps]
+
+source_file="res://Assets/Arcade - Street Fighter - Sound Effects/Sound Effects/sf-057.wav"
+dest_files=["res://.godot/imported/sf-057.wav-72d165767ebb5ff60f434ee0ce6f18e8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -15,7 +15,6 @@ var isJumping: bool;
 
 func Enter():
 	sprite.self_modulate = Color("green");
-
 	
 func Physics_Update(delta: float):
 	wantJump = Input.is_action_just_pressed(up) and player.is_on_floor();
