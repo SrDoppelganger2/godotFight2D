@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjmdbm8q5iii5"]
+[gd_scene load_steps=7 format=3 uid="uid://cjmdbm8q5iii5"]
 
 [ext_resource type="PackedScene" uid="uid://bs153xg616s8h" path="res://scenes/wall.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://djcc12gxy2ucc" path="res://scenes/hud.tscn" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cus86fugc8ghs" path="res://script/battleScene_script.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d7cwol0meqc6" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="AudioStream" uid="uid://b3m2q52yoqbaq" path="res://Assets/Arcade - Street Fighter - Sound Effects/intro_placeholder.wav" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dqy2mfkkcyoyh" path="res://Assets/placeholderBG.png" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tbgi4")
+
+[node name="PlaceholderBG" type="TextureRect" parent="."]
+offset_left = 48.0
+offset_top = 397.0
+offset_right = 942.0
+offset_bottom = 623.0
+texture = ExtResource("6_tefeu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(562, 516)
@@ -32,6 +40,7 @@ RIGHT = "ui_right"
 [node name="platforms" type="Node" parent="."]
 
 [node name="Ground" parent="platforms" instance=ExtResource("1_o5qli")]
+visible = false
 position = Vector2(569, 627)
 scale = Vector2(5, 0.5)
 
