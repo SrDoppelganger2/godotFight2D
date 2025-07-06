@@ -11,7 +11,9 @@ class_name PlayerIdle
 @onready var down = player.getControls("DOWN");
 
 #Inputs de Ataque
-@onready var lp = player.getControls("LP");
+@onready var light = player.getControls("L");
+@onready var medium = player.getControls("M");
+@onready var strong = player.getControls("S");
 
 #var de animação
 @onready var animation: AnimationPlayer = $"../../Animations/AnimationPlayer"
@@ -37,5 +39,12 @@ func Physics_Update(delta: float):
 	if Input.is_action_just_pressed(up):
 		Transitioned.emit(self,"air");
 	
-	if Input.is_action_just_pressed(lp):
+	#todo achar um jeito melhor de detectar se o jogador está atacando
+	if Input.is_action_just_pressed(light):
+		Transitioned.emit(self,"attack");
+	
+	if Input.is_action_just_pressed(medium):
+		Transitioned.emit(self,"attack");
+	
+	if Input.is_action_just_pressed(strong):
 		Transitioned.emit(self,"attack");

@@ -11,7 +11,11 @@ extends CharacterBody2D
 @export var DOWN:String = "";
 @export var LEFT:String = "";
 @export var RIGHT:String = "";
-@export var LP:String = "";
+
+#Inputs de ataque (Light,Medium,Strong)
+@export var L:String = "";
+@export var M:String = "";
+@export var S:String = "";
 
 #TODO refazer esse sistema de controles
 func getControls(input):
@@ -24,8 +28,12 @@ func getControls(input):
 			return LEFT;
 		"RIGHT":
 			return RIGHT
-		"LP":
-			return LP
+		"L":
+			return L
+		"M":
+			return M
+		"S":
+			return S
 
 func getHealth():
 	return health;

@@ -28,7 +28,9 @@ UP = "UP"
 DOWN = "DOWN"
 LEFT = "LEFT"
 RIGHT = "RIGHT"
-LP = "P1_Light"
+L = "P1_Light"
+M = "P1_Medium"
+S = "P1_Strong"
 
 [node name="Player2" parent="." node_paths=PackedStringArray("rival") instance=ExtResource("2_0wfyh")]
 position = Vector2(723, 519)
@@ -37,7 +39,9 @@ UP = "ui_up"
 DOWN = "ui_down"
 LEFT = "ui_left"
 RIGHT = "ui_right"
-LP = "P2_Light"
+L = "P2_Light"
+M = "P2_Medium"
+S = "P2_Strong"
 
 [node name="platforms" type="Node" parent="."]
 
