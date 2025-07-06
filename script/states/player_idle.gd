@@ -4,10 +4,14 @@ class_name PlayerIdle
 @export var player: CharacterBody2D;
 @export var sprite: Sprite2D;
 
+#Inputs de Movimento
 @onready var right = player.getControls("RIGHT");
 @onready var left = player.getControls("LEFT");
 @onready var up = player.getControls("UP");
 @onready var down = player.getControls("DOWN");
+
+#Inputs de Ataque
+@onready var lp = player.getControls("LP");
 
 #var de animação
 @onready var animation: AnimationPlayer = $"../../Animations/AnimationPlayer"
@@ -32,3 +36,6 @@ func Physics_Update(delta: float):
 	
 	if Input.is_action_just_pressed(up):
 		Transitioned.emit(self,"air");
+	
+	if Input.is_action_just_pressed(lp):
+		Transitioned.emit(self,"attack");

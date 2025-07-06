@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d7cwol0meqc6"]
+[gd_scene load_steps=16 format=3 uid="uid://d7cwol0meqc6"]
 
 [ext_resource type="Script" uid="uid://b4wxupagt8egi" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bwwv4a714phcn" path="res://Assets/3man_FG/monk_fwd-Sheet.png" id="2_tuyoq"]
@@ -7,9 +7,61 @@
 [ext_resource type="Script" uid="uid://d1076k7yfdf0h" path="res://script/states/player_air.gd" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://dfga008hpagwe" path="res://script/states/player_move.gd" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://docm5413nh7ch" path="res://Assets/3man_FG/Billy_Monkman-placeholder.png" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://3nrf5vylfe7i" path="res://script/states/player_attack.gd" id="8_smehm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
 size = Vector2(20, 60)
+
+[sub_resource type="Animation" id="Animation_smehm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_tuyoq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fjrip"]
 resource_name = "forward"
@@ -52,45 +104,6 @@ tracks/2/keys = {
 "values": [4]
 }
 
-[sub_resource type="Animation" id="Animation_smehm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_tuyoq")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
 [sub_resource type="Animation" id="Animation_ur7pv"]
 resource_name = "idle"
 length = 0.1
@@ -119,13 +132,68 @@ tracks/1/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "light_Attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fjrip")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
 _data = {
 &"RESET": SubResource("Animation_smehm"),
 &"forward": SubResource("Animation_fjrip"),
-&"idle": SubResource("Animation_ur7pv")
+&"idle": SubResource("Animation_ur7pv"),
+&"light_Attack": SubResource("Animation_y4r1p")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smehm"]
 
 [node name="Player" type="CharacterBody2D" groups=["Players"]]
 script = ExtResource("1_g2els")
@@ -137,6 +205,13 @@ hframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_fjrip")
+
+[node name="Animations" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
+libraries = {
+&"": SubResource("AnimationLibrary_ur7pv")
+}
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_qhqgy")
@@ -157,9 +232,16 @@ script = ExtResource("6_tuyoq")
 sprite = NodePath("../../Sprite2D")
 player = NodePath("../..")
 
-[node name="Animations" type="Node" parent="."]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "sprite")]
+script = ExtResource("8_smehm")
+player = NodePath("../..")
+sprite = NodePath("../../Sprite2D")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
-libraries = {
-&"": SubResource("AnimationLibrary_ur7pv")
-}
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(20, 5)
+shape = SubResource("RectangleShape2D_smehm")
+debug_color = Color(0.798778, 0.158068, 0.942476, 0.42)
+
+[connection signal="animation_finished" from="Animations/AnimationPlayer" to="StateMachine/Attack" method="_on_animation_finished"]

@@ -4,11 +4,14 @@ extends CharacterBody2D
 
 @export var rival: CharacterBody2D;
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var hitbox: Area2D = $Hitbox
+
 
 @export var UP:String = "";
 @export var DOWN:String = "";
 @export var LEFT:String = "";
 @export var RIGHT:String = "";
+@export var LP:String = "";
 
 #TODO refazer esse sistema de controles
 func getControls(input):
@@ -21,6 +24,8 @@ func getControls(input):
 			return LEFT;
 		"RIGHT":
 			return RIGHT
+		"LP":
+			return LP
 
 func getHealth():
 	return health;
@@ -34,8 +39,10 @@ func _process(delta: float):
 	#deixa o personagem virado para o inimigo
 	if rival.global_position.x > global_position.x:
 		sprite.scale.x = 1;
+		hitbox.scale.x = 1;
 	else:
 		sprite.scale.x = -1;
+		hitbox.scale.x = -1;
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
