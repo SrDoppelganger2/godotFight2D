@@ -34,7 +34,7 @@ func getHealth():
 func getHurt(damage:int):
 	health = health - damage
 
-func _process(delta: float):
+func _process(_delta: float):
 	
 	#deixa o personagem virado para o inimigo
 	if rival.global_position.x > global_position.x:

@@ -14,6 +14,6 @@ func _ready() -> void:
 	player2 = playerList[1];
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	P1health.text = "Player 1: " + str(player1.getHealth());
-	P2health.text = "Player 1: " + str(player2.getHealth());
+	P2health.text = "Player 2: " + str(player2.getHealth());
