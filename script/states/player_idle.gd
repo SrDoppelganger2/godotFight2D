@@ -39,6 +39,9 @@ func Physics_Update(delta: float):
 	if Input.is_action_just_pressed(up):
 		Transitioned.emit(self,"air");
 	
+	if Input.is_action_just_pressed(down):
+		Transitioned.emit(self,"crouch");
+	
 	#todo achar um jeito melhor de detectar se o jogador está atacandodad
 	if Input.is_action_just_pressed(light):
 		Transitioned.emit(self,"attack");

@@ -34,5 +34,9 @@ func Physics_Update(delta: float):
 	if Input.is_action_just_pressed(up):
 		Transitioned.emit(self,"air");
 	
+	if Input.is_action_just_pressed(down):
+		Transitioned.emit(self,"crouch");
+		player.velocity -= direction * SPEED; 
+	
 	if direction == Vector2(0,0):
 		Transitioned.emit(self,"idle");
