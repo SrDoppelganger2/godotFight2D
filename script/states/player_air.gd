@@ -2,6 +2,8 @@ extends State
 
 @export var player: CharacterBody2D;
 @export var sprite: Sprite2D;
+@onready var animation: AnimationPlayer = $"../../Animations/AnimationPlayer"
+
 
 const SPEED = 150.0
 
@@ -39,6 +41,8 @@ func getInput():
 
 func Enter():
 	sprite.self_modulate = Color("purple");
+	animation.play("jump");
+	
 	calculateMovement()
 	if player.is_on_floor():
 		player.velocity.y = -jump_velocity
@@ -62,5 +66,7 @@ func Physics_Update(delta: float):
 	if Input.is_action_just_pressed(up) and player.is_on_floor():
 		player.velocity.y = jump_velocity
 	
-	if player.is_on_floor():
+	if player.is_on_floor() and Input.is_action_pressed(down):
+		Transitioned.emit(self,"crouch");
+	elif player.is_on_floor():
 		Transitioned.emit(self,"idle");

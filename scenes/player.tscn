@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d7cwol0meqc6"]
+[gd_scene load_steps=22 format=3 uid="uid://d7cwol0meqc6"]
 
 [ext_resource type="Script" uid="uid://b4wxupagt8egi" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bwwv4a714phcn" path="res://Assets/3man_FG/monk_fwd-Sheet.png" id="2_tuyoq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b1kpc01o01ptd" path="res://Assets/3man_FG/monk_light-Sheet.png" id="4_ur7pv"]
 [ext_resource type="Script" uid="uid://d1076k7yfdf0h" path="res://script/states/player_air.gd" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://s1im4ucfcwkf" path="res://Assets/3man_FG/monk_crouch-Sheet.png" id="5_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://d2yi1shrudiuk" path="res://Assets/3man_FG/monk_jump-Sheet.png" id="6_3v2ag"]
 [ext_resource type="Script" uid="uid://dfga008hpagwe" path="res://script/states/player_move.gd" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://docm5413nh7ch" path="res://Assets/3man_FG/Billy_Monkman-placeholder.png" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://3nrf5vylfe7i" path="res://script/states/player_attack.gd" id="8_smehm"]
@@ -316,7 +317,68 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3v2ag"]
-resource_name = "new_animation"
+resource_name = "jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_3v2ag")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.108614),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.108614),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
 _data = {
@@ -324,8 +386,8 @@ _data = {
 &"crouch": SubResource("Animation_d2wvv"),
 &"forward": SubResource("Animation_fjrip"),
 &"idle": SubResource("Animation_ur7pv"),
-&"light_Attack": SubResource("Animation_y4r1p"),
-&"new_animation": SubResource("Animation_3v2ag")
+&"jump": SubResource("Animation_3v2ag"),
+&"light_Attack": SubResource("Animation_y4r1p")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Players"]]

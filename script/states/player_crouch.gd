@@ -14,9 +14,10 @@ extends State
 @onready var down = player.getControls("DOWN");
 
 func Enter():
-	sprite.self_modulate = Color("purple");
+	sprite.self_modulate = Color("pink");
+	player.velocity.x = 0; 
 	animation.play("crouch");
-
+	
 func Update(delta:float):
 	if !Input.is_action_pressed(down):
 		Transitioned.emit(self,"idle");
