@@ -45,7 +45,8 @@ func getHealth():
 #para teste
 func getHurt(damage:int):
 	if blocking:
-		health = health - round((damage/2))
+		#provisório, pensar no balanceamento dps
+		health = health - 1
 	else:
 		health = health - damage
 
@@ -66,6 +67,7 @@ func _process(_delta: float):
 		sprite.scale.x = -1;
 		hitbox.scale.x = -1;
 		direction = -1.0 #-1.0 = olhando para a esquerda
+		
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

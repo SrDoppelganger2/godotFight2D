@@ -9,7 +9,7 @@ var input: Vector2;
 
 #pegar a direcão que o jogador está olhando
 #var de blocking
-@onready var playerDirection = player.getFacingDirection(); 
+@onready var playerDirection; 
 
 @onready var right = player.getControls("RIGHT");
 @onready var left = player.getControls("LEFT");
@@ -32,8 +32,11 @@ func Physics_Update(delta: float):
 	var direction = getInput();
 	player.velocity = direction * SPEED;
 	
+	playerDirection = player.getFacingDirection()
+	
 	if direction.x == -playerDirection:
 		player.setBlocking(true);
+		#colocar coisas de charge input aq ;3
 	else:
 		player.setBlocking(false);
 	
