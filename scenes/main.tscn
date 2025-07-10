@@ -51,12 +51,12 @@ position = Vector2(569, 627)
 scale = Vector2(5, 0.5)
 
 [node name="Ground2" parent="platforms" instance=ExtResource("1_o5qli")]
-position = Vector2(895, 471)
+position = Vector2(785, 481)
 rotation = 1.5708
 scale = Vector2(3, 0.5)
 
 [node name="Ground3" parent="platforms" instance=ExtResource("1_o5qli")]
-position = Vector2(255, 478)
+position = Vector2(338, 487)
 rotation = 1.5708
 scale = Vector2(3, 0.5)
 

@@ -6,6 +6,6 @@ a little 2D fighting game experiment using godot
 - [ ] Movimentação básica
 - [ ] Ataques básicos
 - [ ] UI básica
-- [ ] Sistema de Vida
+- [X] Sistema de Vida
 - [ ] Buffer de Inputs
 - [ ] Sitema de Mudança de Personagens

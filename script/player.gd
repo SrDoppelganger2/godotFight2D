@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 @export var health = 10;
+var blocking:bool = false;
 
 @export var rival: CharacterBody2D;
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hitbox: Area2D = $Hitbox
 
+#TODO achar um jeito mais efetivo de fazer isso
+var direction = 1.0;
 
 @export var UP:String = "";
 @export var DOWN:String = "";
@@ -18,6 +21,7 @@ extends CharacterBody2D
 @export var S:String = "";
 
 #TODO refazer esse sistema de controles
+#TODO achar um jeito melhor de compartilhar essas variáveis
 func getControls(input):
 	match input:
 		"UP":
@@ -40,7 +44,16 @@ func getHealth():
 	
 #para teste
 func getHurt(damage:int):
-	health = health - damage
+	if blocking:
+		health = health - round((damage/2))
+	else:
+		health = health - damage
+
+func getFacingDirection():
+	return direction;
+
+func setBlocking(value:bool):
+	blocking = value;
 
 func _process(_delta: float):
 	
@@ -48,9 +61,11 @@ func _process(_delta: float):
 	if rival.global_position.x > global_position.x:
 		sprite.scale.x = 1;
 		hitbox.scale.x = 1;
+		direction = 1.0; #1.0 = olhando para direita
 	else:
 		sprite.scale.x = -1;
 		hitbox.scale.x = -1;
+		direction = -1.0 #-1.0 = olhando para a esquerda
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

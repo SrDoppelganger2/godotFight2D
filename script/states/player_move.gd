@@ -7,6 +7,10 @@ const SPEED = 200.0
 
 var input: Vector2;
 
+#pegar a direcão que o jogador está olhando
+#var de blocking
+@onready var playerDirection = player.getFacingDirection(); 
+
 @onready var right = player.getControls("RIGHT");
 @onready var left = player.getControls("LEFT");
 @onready var up = player.getControls("UP");
@@ -27,6 +31,11 @@ func Enter():
 func Physics_Update(delta: float):
 	var direction = getInput();
 	player.velocity = direction * SPEED;
+	
+	if direction.x == -playerDirection:
+		player.setBlocking(true);
+	else:
+		player.setBlocking(false);
 	
 	if not player.is_on_floor():
 		Transitioned.emit(self,"air");
